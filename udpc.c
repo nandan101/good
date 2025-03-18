@@ -27,17 +27,17 @@ int main() {
     // 3. Send a hello message to the server
     strcpy(buffer, "Hello Server!\n");
     sendto(sockfd, buffer, strlen(buffer), 0, (struct sockaddr*)&servaddr, sizeof(servaddr));
-    printf("✅ Initial message sent to server!\n");
+    printf(" Initial message sent to server!\n");
 
     // 4. Now continuously receive messages from server
     len = sizeof(servaddr);
     while (1) {
         recvfrom(sockfd, buffer, sizeof(buffer), 0, (struct sockaddr*)&servaddr, &len);
-        printf("📩 Server: %s", buffer);
+        printf(" Server: %s", buffer);
 
         // Exit condition
         if (strncmp(buffer, "exit", 4) == 0) {
-            printf("🚀 Server has closed the connection. Exiting...\n");
+            printf("Server has closed the connection. Exiting...\n");
             break;
         }
 
