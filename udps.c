@@ -35,7 +35,7 @@ int main() {
 
     // 3. First receive a message from the client
     recvfrom(sockfd, buffer, sizeof(buffer), 0, (struct sockaddr*)&cliaddr, &len);
-    printf("📩 Client: %s", buffer);
+    printf(" Client: %s", buffer);
 
     // 4. Now continuously send messages to the client
     while (1) {
